@@ -8,6 +8,7 @@ namespace KMC_Pallet_Info
 {
     public class Pallet
     {
+        public int PalletID { get; set; }
         public string SerialNo { get; set; }
         public string EAN { get; set; }
         public string Code { get; set; }
