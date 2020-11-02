@@ -52,15 +52,16 @@
             // 
             this.btnViewDetails.Location = new System.Drawing.Point(3, 32);
             this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.Size = new System.Drawing.Size(231, 42);
+            this.btnViewDetails.Size = new System.Drawing.Size(199, 42);
             this.btnViewDetails.TabIndex = 0;
-            this.btnViewDetails.Text = "View Pallet Information";
+            this.btnViewDetails.Text = "Generate Report";
             this.btnViewDetails.UseVisualStyleBackColor = true;
             this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -71,13 +72,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(1036, 602);
-            this.splitContainer1.SplitterDistance = 237;
+            this.splitContainer1.Size = new System.Drawing.Size(1127, 602);
+            this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 3;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -91,7 +93,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.btnViewDetails);
             this.splitContainer2.Panel2.Controls.Add(this.btnClear);
             this.splitContainer2.Panel2.Controls.Add(this.btnExport);
-            this.splitContainer2.Size = new System.Drawing.Size(237, 602);
+            this.splitContainer2.Size = new System.Drawing.Size(205, 602);
             this.splitContainer2.SplitterDistance = 462;
             this.splitContainer2.TabIndex = 10;
             // 
@@ -105,7 +107,7 @@
             this.dataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(237, 462);
+            this.dataGridView2.Size = new System.Drawing.Size(205, 462);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellEndEdit);
             // 
@@ -117,7 +119,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(160, 2);
+            this.btnClear.Location = new System.Drawing.Point(129, 3);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 2;
@@ -127,9 +129,10 @@
             // 
             // btnExport
             // 
+            this.btnExport.Enabled = false;
             this.btnExport.Location = new System.Drawing.Point(3, 80);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(231, 42);
+            this.btnExport.Size = new System.Drawing.Size(199, 42);
             this.btnExport.TabIndex = 1;
             this.btnExport.Text = "Export to Excel";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -141,14 +144,14 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(795, 602);
+            this.dataGridView1.Size = new System.Drawing.Size(918, 602);
             this.dataGridView1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 602);
+            this.ClientSize = new System.Drawing.Size(1127, 602);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "Pallet Information";

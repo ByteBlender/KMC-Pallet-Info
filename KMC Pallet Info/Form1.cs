@@ -22,17 +22,43 @@ namespace KMC_Pallet_Info
 
         private void btnViewDetails_Click(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = null;
+            btnExport.Enabled = false;
+
             List<string> palletIDs = new List<string>();
 
-            foreach (DataGridViewRow row in dataGridView2.Rows)
+            try
             {
-                if (!string.IsNullOrWhiteSpace(row.Cells[0].Value?.ToString()) && row.Cells[0].Value.ToString() != "0")
+
+                foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
-                    palletIDs.Add(row.Cells[0].Value.ToString());
+                    if (!string.IsNullOrWhiteSpace(row.Cells[0].Value?.ToString()) && row.Cells[0].Value.ToString() != "0")
+                    {
+                        palletIDs.Add(row.Cells[0].Value.ToString());
+                    }
+                }
+
+                pallets = Data.GetPalletInfo(palletIDs);
+
+                foreach (Pallet pallet in pallets)
+                {
+                    pallet.GTIN = Pallet.GenerateGTIN(pallet.EAN, pallet.Weight, pallet.Date, pallet.SerialNo);
+                }
+
+                dataGridView1.DataSource = pallets;
+                dataGridView1.Columns[7].Width = 350;
+
+                if (dataGridView1.DataSource != null && dataGridView1.Rows.Count > 0)
+                {
+                    btnExport.Enabled = true;
                 }
             }
+            catch (Exception ex)
+            {
 
-           dataGridView1.DataSource = pallets = Data.GetPalletInfo(palletIDs);
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
 
@@ -58,17 +84,29 @@ namespace KMC_Pallet_Info
         private void btnExport_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Excel|.xlsx";
+            saveFileDialog.Filter = "Excel|*.xlsx";
             saveFileDialog.ShowDialog();
 
-            if(saveFileDialog.FileName != null)
+            try
             {
-                DataTable table = TextFileRW.CreateTableFromObject(pallets);
-                ExcelRW.WriteExcelFile(saveFileDialog.FileName, table);
+                if (!string.IsNullOrWhiteSpace(saveFileDialog.FileName))
+                {
+                   
+                    DataTable table = TextFileRW.CreateTableFromObject(pallets);
+                //    Excel1.CreateExcel(saveFileDialog.FileName,table);
+                    Excel1.WriteExcelFile(saveFileDialog.FileName, table);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
 
-          
-            
+
+
+
+
         }
     }
     }
