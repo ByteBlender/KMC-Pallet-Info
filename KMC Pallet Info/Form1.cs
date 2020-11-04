@@ -93,18 +93,18 @@ namespace KMC_Pallet_Info
                 {
 
                     List<string> palledIds = pallets.Select(x => x.PalletID.ToString()).ToList().Distinct().ToList();
+                    DataTable table = TextFileRW.CreateTableFromObject(pallets);
+                    Excel1.WriteExcelFile($"{saveFileDialog.FileName}", table);
 
-                     
                     for (int i = 0; i < palledIds.Count; i++)
                     {
                         List<Pallet> p = pallets.Where(x => x.PalletID == int.Parse(palledIds[i].ToString())).ToList();
 
-                        DataTable table = TextFileRW.CreateTableFromObject(p);
+                        DataTable t = TextFileRW.CreateTableFromObject(p);
 
 
-                        Excel1.WriteExcelFile($"{saveFileDialog.FileName.Replace(".xlsx","")}_{palledIds[i]}.xlsx", table);
+                        Excel1.WriteExcelFile($"{saveFileDialog.FileName.Replace(".xlsx","")}_{palledIds[i]}.xlsx", t);
                     }
-                    // Excel1.CreateExcel(saveFileDialog.FileName,table,palledIds);
 
                 }
             }
