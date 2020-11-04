@@ -31,7 +31,7 @@ namespace KMC_Pallet_Info
                 weightString = $"0{weightString}";
             }
 
-            return $"(01) 9 {ean} {calcChecksum(ean)} (3102) {weightString} (13) {date.ToString("yyMMdd")} (21) {serialNo}";
+            return $"019{ean}{calcChecksum(ean)}3102{weightString}13{date.ToString("yyMMdd")}21{serialNo}";
         }
 
         private static string calcChecksum(string ean)
