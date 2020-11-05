@@ -17,7 +17,7 @@ namespace KMC_Pallet_Info
 
             using (IDbConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlConnStr"].ConnectionString))
             {
-                var res = conn.Query<Pallet>(@"  SELECT P.fldPalletID as PalletID, D.fldTransactionID as SerialNo, R.fldProductEANBarcode as EAN, r.fldProductCode as Code, R.fldProductDescription as [Description],  [PalletPackOnDate]  as [Date] , fldTransactionNetWeight as [Weight]
+                var res = conn.Query<Pallet>(@"  SELECT P.fldPalletID as PalletID, D.fldTransactionID as SerialNo, R.fldProductEANBarcode as EAN, r.fldProductCode as Code, R.fldProductDescription as [Description],  [fldTransactionDateTime]  as [Date] , fldTransactionNetWeight as [Weight]
                                                 FROM Pallet P inner join PalletDetails D on p.fldPalletID = d.fldPalletID
                                                 inner join [TRANSACTION] T on D.fldTransactionID = T.fldTransactionID
                                                 inner join PRODUCT R on R.fldProductCode = T.fldProductCode
