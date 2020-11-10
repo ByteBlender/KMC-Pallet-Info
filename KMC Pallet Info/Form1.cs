@@ -40,10 +40,28 @@ namespace KMC_Pallet_Info
 
                 pallets = Data.GetPalletInfo(palletIDs);
 
+
+                double totalWeight = 0;
+
+
                 foreach (Pallet pallet in pallets)
                 {
                     pallet.GTIN = Pallet.GenerateGTIN(pallet.EAN, pallet.Weight, pallet.Date, pallet.SerialNo);
+
+                    totalWeight += pallet.Weight;
                 }
+
+
+                lblCount1.Text = $"Entered Pallet IDs";
+                lblCount2.Text = $"Valid Pallet IDs";
+                lblCount3.Text = $"Total Cartons";
+                lblWeight.Text = $"Total Weight";
+
+                lblVal1.Text = $": {palletIDs.Count.ToString()}";
+                lblVal2.Text = $": { pallets.Select(x => x.PalletID).Distinct().ToList().Count.ToString()}";
+                lblVal3.Text = $": { pallets.Count.ToString()}";
+                lblWeightVal.Text = $": {totalWeight}";
+
 
                 dataGridView1.DataSource = pallets;
                 dataGridView1.Columns[7].Width = 350;
@@ -79,6 +97,8 @@ namespace KMC_Pallet_Info
         private void btnClear_Click(object sender, EventArgs e)
         {
             dataGridView2.Rows.Clear();
+            lblCount1.ResetText();
+            lblCount2.ResetText();
         }
 
         private void btnExport_Click(object sender, EventArgs e)

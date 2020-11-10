@@ -33,9 +33,17 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.PalletID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblVal3 = new System.Windows.Forms.Label();
+            this.lblVal2 = new System.Windows.Forms.Label();
+            this.lblVal1 = new System.Windows.Forms.Label();
+            this.lblCount3 = new System.Windows.Forms.Label();
+            this.lblCount2 = new System.Windows.Forms.Label();
+            this.lblCount1 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblWeightVal = new System.Windows.Forms.Label();
+            this.lblWeight = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -50,7 +58,7 @@
             // 
             // btnViewDetails
             // 
-            this.btnViewDetails.Location = new System.Drawing.Point(3, 32);
+            this.btnViewDetails.Location = new System.Drawing.Point(4, 114);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.Size = new System.Drawing.Size(199, 42);
             this.btnViewDetails.TabIndex = 0;
@@ -72,7 +80,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(1224, 602);
+            this.splitContainer1.Size = new System.Drawing.Size(1224, 768);
             this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -90,11 +98,19 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.lblWeightVal);
+            this.splitContainer2.Panel2.Controls.Add(this.lblWeight);
+            this.splitContainer2.Panel2.Controls.Add(this.lblVal3);
+            this.splitContainer2.Panel2.Controls.Add(this.lblVal2);
+            this.splitContainer2.Panel2.Controls.Add(this.lblVal1);
+            this.splitContainer2.Panel2.Controls.Add(this.lblCount3);
+            this.splitContainer2.Panel2.Controls.Add(this.lblCount2);
+            this.splitContainer2.Panel2.Controls.Add(this.lblCount1);
             this.splitContainer2.Panel2.Controls.Add(this.btnViewDetails);
             this.splitContainer2.Panel2.Controls.Add(this.btnClear);
             this.splitContainer2.Panel2.Controls.Add(this.btnExport);
-            this.splitContainer2.Size = new System.Drawing.Size(205, 602);
-            this.splitContainer2.SplitterDistance = 462;
+            this.splitContainer2.Size = new System.Drawing.Size(205, 768);
+            this.splitContainer2.SplitterDistance = 557;
             this.splitContainer2.TabIndex = 10;
             // 
             // dataGridView2
@@ -107,7 +123,7 @@
             this.dataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(205, 462);
+            this.dataGridView2.Size = new System.Drawing.Size(205, 557);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellEndEdit);
             // 
@@ -116,6 +132,54 @@
             this.PalletID.HeaderText = "Pallet ID";
             this.PalletID.Name = "PalletID";
             this.PalletID.Width = 200;
+            // 
+            // lblVal3
+            // 
+            this.lblVal3.AutoSize = true;
+            this.lblVal3.Location = new System.Drawing.Point(94, 71);
+            this.lblVal3.Name = "lblVal3";
+            this.lblVal3.Size = new System.Drawing.Size(0, 13);
+            this.lblVal3.TabIndex = 8;
+            // 
+            // lblVal2
+            // 
+            this.lblVal2.AutoSize = true;
+            this.lblVal2.Location = new System.Drawing.Point(94, 51);
+            this.lblVal2.Name = "lblVal2";
+            this.lblVal2.Size = new System.Drawing.Size(0, 13);
+            this.lblVal2.TabIndex = 7;
+            // 
+            // lblVal1
+            // 
+            this.lblVal1.AutoSize = true;
+            this.lblVal1.Location = new System.Drawing.Point(94, 32);
+            this.lblVal1.Name = "lblVal1";
+            this.lblVal1.Size = new System.Drawing.Size(0, 13);
+            this.lblVal1.TabIndex = 6;
+            // 
+            // lblCount3
+            // 
+            this.lblCount3.AutoSize = true;
+            this.lblCount3.Location = new System.Drawing.Point(12, 71);
+            this.lblCount3.Name = "lblCount3";
+            this.lblCount3.Size = new System.Drawing.Size(0, 13);
+            this.lblCount3.TabIndex = 5;
+            // 
+            // lblCount2
+            // 
+            this.lblCount2.AutoSize = true;
+            this.lblCount2.Location = new System.Drawing.Point(12, 51);
+            this.lblCount2.Name = "lblCount2";
+            this.lblCount2.Size = new System.Drawing.Size(0, 13);
+            this.lblCount2.TabIndex = 4;
+            // 
+            // lblCount1
+            // 
+            this.lblCount1.AutoSize = true;
+            this.lblCount1.Location = new System.Drawing.Point(12, 32);
+            this.lblCount1.Name = "lblCount1";
+            this.lblCount1.Size = new System.Drawing.Size(0, 13);
+            this.lblCount1.TabIndex = 3;
             // 
             // btnClear
             // 
@@ -130,7 +194,7 @@
             // btnExport
             // 
             this.btnExport.Enabled = false;
-            this.btnExport.Location = new System.Drawing.Point(3, 80);
+            this.btnExport.Location = new System.Drawing.Point(3, 162);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(199, 42);
             this.btnExport.TabIndex = 1;
@@ -144,14 +208,30 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1015, 602);
+            this.dataGridView1.Size = new System.Drawing.Size(1015, 768);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // lblWeightVal
+            // 
+            this.lblWeightVal.AutoSize = true;
+            this.lblWeightVal.Location = new System.Drawing.Point(94, 91);
+            this.lblWeightVal.Name = "lblWeightVal";
+            this.lblWeightVal.Size = new System.Drawing.Size(0, 13);
+            this.lblWeightVal.TabIndex = 10;
+            // 
+            // lblWeight
+            // 
+            this.lblWeight.AutoSize = true;
+            this.lblWeight.Location = new System.Drawing.Point(12, 91);
+            this.lblWeight.Name = "lblWeight";
+            this.lblWeight.Size = new System.Drawing.Size(0, 13);
+            this.lblWeight.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1224, 602);
+            this.ClientSize = new System.Drawing.Size(1224, 768);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "Pallet Information";
@@ -161,6 +241,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -178,6 +259,14 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Label lblCount1;
+        private System.Windows.Forms.Label lblCount3;
+        private System.Windows.Forms.Label lblCount2;
+        private System.Windows.Forms.Label lblVal3;
+        private System.Windows.Forms.Label lblVal2;
+        private System.Windows.Forms.Label lblVal1;
+        private System.Windows.Forms.Label lblWeightVal;
+        private System.Windows.Forms.Label lblWeight;
     }
 }
 

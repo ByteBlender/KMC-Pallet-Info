@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,18 @@ namespace KMC_Pallet_Info
     {
         public static List<Pallet> GetPalletInfo(List<string> palletID)
         {
+            string connStr = "";
 
-            using (IDbConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlConnStr"].ConnectionString))
+            if (Debugger.IsAttached)
+            {
+                connStr = ConfigurationManager.ConnectionStrings["SqlConnStr_dev"].ConnectionString;
+            }
+            else
+            {
+                connStr = ConfigurationManager.ConnectionStrings["SqlConnStr"].ConnectionString;
+            }
+
+            using (IDbConnection conn = new SqlConnection(connStr))
             {
                 var res = conn.Query<Pallet>(@"  SELECT P.fldPalletID as PalletID, D.fldTransactionID as SerialNo, R.fldProductEANBarcode as EAN, r.fldProductCode as Code, R.fldProductDescription as [Description],  [fldTransactionDateTime]  as [Date] , fldTransactionNetWeight as [Weight]
                                                 FROM Pallet P inner join PalletDetails D on p.fldPalletID = d.fldPalletID
